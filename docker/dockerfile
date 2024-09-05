@@ -14,7 +14,7 @@ RUN apt clean
 RUN gem install sass
 RUN gem install compass
 
-# Install nvm/npm
+# Install nvm/npm 
 RUN apt install nodejs npm -y
 RUN npm -g install less
 RUN apt install -y python3-pip
