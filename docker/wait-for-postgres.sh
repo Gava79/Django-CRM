@@ -8,10 +8,13 @@ shift
 cmd=( "$@" )
 
 echo "Testing Postgres connection with psql ..."
-until PGPASSWORD="$DBPASSWORD" psql -h "$host" -U "$DBUSER" -c "\q"; do
-  >&2 echo -n .
+
+# Wait for PostgreSQL to be available
+until PGPASSWORD="$DBPASSWORD" psql -h "$host" -U "$DBUSER" -d "$DBNAME" -c "\q" >/dev/null 2>&1; do
+  >&2 echo -n "."
   sleep 1
 done
 
+# Notify that PostgreSQL is ready and execute the passed command
 >&2 echo "Postgres is up - executing command"
-exec $cmd
+exec "${cmd[@]}"
