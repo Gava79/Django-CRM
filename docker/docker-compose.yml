@@ -9,8 +9,7 @@ services:
       - DBPASSWORD=crm      # Ensure it matches the .env
       - DBHOST=crm-db       # Correctly points to the DB service
       - DBPORT=5432
-      - OAUTH_CLIENT_ID=xxxxxxxxxxxxxxx
-      - OAUTH_CLIENT_SECRET=xxxxxxxxxxxxxxxxx
+      
     depends_on:
       - crm-db
     ports:
