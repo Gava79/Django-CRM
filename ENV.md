@@ -1,6 +1,6 @@
 # Environment variables
 
-SECRET_KEY="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"
+SECRET_KEY="mco934$@)NHUYTC%6789"
 ENV_TYPE="dev"
 DOMAIN_NAME=""
 
